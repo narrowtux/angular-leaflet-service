@@ -8,12 +8,12 @@
  * # map
  */
 angular.module('angularLeafletService.directives')
-  .directive('leaflet-map', function ($leaflet) {
+  .directive('leafletMap', function ($leaflet) {
     return {
       template: '',
       restrict: 'E',
       scope: {
-        mapboxStyle: '='
+        mapboxStyle: '=?'
       },
       link: function postLink(scope, element, attrs) {
         scope.id = element.attr('id');

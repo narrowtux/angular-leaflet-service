@@ -1,13 +1,16 @@
-leaflet-map {
-  display: block;
-  width: 800px;
-  height: 600px;
-}
-
 .leaflet-fullscreen {
   position: absolute;
   width: 100%;
   height: 100vh;
   left: 0;
   top: 0;
+}
+
+leaflet-map {
+  display: block;
+}
+
+leaflet-map:not(.leaflet-fullscreen) {
+  width: 800px;
+  height: 600px;
 }
