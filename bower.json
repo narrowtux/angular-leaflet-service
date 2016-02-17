@@ -1,0 +1,24 @@
+{
+  "name": "angular-leaflet-service",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Moritz Schmale",
+      "email": "narrow.m@gmail.com"
+    }
+  ],
+  "main": ["dist/angular-leaflet-service.js"],
+  "ignore": [
+    "src",
+    "test",
+    "gulpfile.js",
+    "karma-*.conf.js",
+    "**/.*"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "angular-mocks": ">=1.2.0",
+    "angular-scenario": ">=1.2.0",
+    "angular": ">=1.2.0"
+  }
+}

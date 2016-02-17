@@ -1,0 +1,30 @@
+{
+  "generator-angularjs-library": {
+    "props": {
+      "author": {
+        "name": "Moritz Schmale",
+        "email": "narrow.m@gmail.com"
+      },
+      "libraryName": {
+        "original": "angular-leaflet-service",
+        "camelized": "angularLeafletService",
+        "dasherized": "angular-leaflet-service",
+        "slugified": "angular-leaflet-service",
+        "parts": [
+          "angular",
+          "leaflet",
+          "service"
+        ]
+      },
+      "includeModuleDirectives": true,
+      "includeModuleFilters": false,
+      "includeModuleServices": true,
+      "includeAngularModuleResource": false,
+      "includeAngularModuleCookies": false,
+      "includeAngularModuleSanitize": false,
+      "librarySrcDirectory": "src/angular-leaflet-service",
+      "libraryUnitTestDirectory": "test/unit/angular-leaflet-service",
+      "libraryUnitE2eDirectory": "test/e2e/angular-leaflet-service"
+    }
+  }
+}
