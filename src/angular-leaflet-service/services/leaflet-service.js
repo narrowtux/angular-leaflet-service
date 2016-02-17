@@ -33,6 +33,9 @@ angular.module('angularLeafletService.services')
          * @param name name of the map
            */
         registerMap: function(map, name) {
+          if (maps[name]) {
+            throw new Error("Only one map with the same name is allowed at a time.");
+          }
           maps[name] = map;
           if (requestedMaps[name]) {
             requestedMaps[name].forEach(function (deferred) {
@@ -40,6 +43,9 @@ angular.module('angularLeafletService.services')
             });
             requestedMaps[name] = null;
           }
+          map.on('unload', function() {
+            maps[name] = null;
+          });
         },
 
           /**

@@ -9,30 +9,43 @@
  */
 angular.module('angularLeafletService.directives')
   .directive('leafletMap', function ($leaflet) {
+    var names = [];
+
     return {
       template: '',
       restrict: 'E',
       scope: {
-        mapboxStyle: '=?'
+        mapboxStyle: '=?',
+        name: '=?'
       },
       link: function postLink(scope, element, attrs) {
-        scope.id = element.attr('id');
-        console.log(scope.id);
+        if (!scope.name) {
+          scope.name = element.attr('id');
+        }
+
+        var id = scope.name;
+        if (names[scope.name]) {
+          names[scope.name] ++;
+          id = scope.name + "-" + names[scope.name];
+        } else {
+          names[scope.name] = 1;
+        }
+        element.attr('id', id);
 
         switch($leaflet.getProvider()) {
           case 'mapbox':
             if (!scope.mapboxStyle) {
               scope.mapboxStyle = 'mapbox.streets';
             }
-            scope.map = L.mapbox.map(scope.id, scope.mapboxStyle);
+            scope.map = L.mapbox.map(id, scope.mapboxStyle);
             break;
           case 'leaflet':
-            scope.map = L.map(scope.id);
+            scope.map = L.map(id);
             break;
         }
         scope.map.setView([53.544058899999996, 9.996588299999999], 18);
 
-        $leaflet.registerMap(scope.map, scope.id);
+        $leaflet.registerMap(scope.map, scope.name);
       }
     };
   });
