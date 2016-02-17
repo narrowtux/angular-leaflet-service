@@ -9,7 +9,7 @@ This library offers you the choice between 2 providers: `leaflet` (**Default**) 
 If you use `mapbox`, you need to set your access token:
 
 ```js
-angular.config(function($leafletProvider) {
+yourmodule.config(function($leafletProvider) {
   $leafletProvider.setup({
     provider: "mapbox",
     accessToken: "pk.xxxxxxx"
