@@ -9,8 +9,8 @@ This library offers you the choice between 2 providers: `leaflet` (**Default**) 
 If you use `mapbox`, you need to set your access token:
 
 ```
-angular.config(function($leaflet) {
-  $leaflet.setup({
+angular.config(function($leafletProvider) {
+  $leafletProvider.setup({
     provider: "mapbox",
     accessToken: "pk.xxxxxxx"
   });
@@ -36,7 +36,9 @@ $leaflet.getMap("my-demo-map").then(function(map) {
 });
 ```
 
-If you use leaflet, you should set the tileset for your map there as well.
+As `$leaflet.getMap` returns a promise, you should refrain from caching the value somewhere to prevent race conditions.
+
+If you use `leaflet`, you should set the tileset for your map there as well.
 
 If you use mapbox, it will use `mapbox.streets` as a default style, you can modify that in the directive:
 
