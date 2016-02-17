@@ -18,6 +18,8 @@ var rootDirectory = path.resolve('./');
 // Source directory for build process
 var sourceDirectory = path.join(rootDirectory, './src');
 
+var styles = path.join(rootDirectory, "./src");
+
 // tests
 var testDirectory = path.join(rootDirectory, './test/unit');
 
@@ -28,6 +30,10 @@ var sourceFiles = [
 
   // Then add all JavaScript files
   path.join(sourceDirectory, '/**/*.js')
+];
+
+var styleFiles = [
+  path.join(styles, '/**/*.css')
 ];
 
 var lintFiles = [
@@ -43,6 +49,9 @@ gulp.task('build', function() {
     .pipe(gulp.dest('./dist/'))
     .pipe(uglify())
     .pipe(rename('angular-leaflet-service.min.js'))
+    .pipe(gulp.dest('./dist'));
+  gulp.src(styleFiles)
+    .pipe(concat('angular-leaflet-service.css'))
     .pipe(gulp.dest('./dist'));
 });
 
