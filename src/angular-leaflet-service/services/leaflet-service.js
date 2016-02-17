@@ -14,6 +14,15 @@ angular.module('angularLeafletService.services')
     var requestedMaps = [];
     var provider = 'leaflet';
 
+    this.setup = function(options) {
+      if (options.provider) {
+        provider = options.provider;
+      }
+      if (provider === 'mapbox') {
+        L.mapbox.accessToken = options.accessToken;
+      }
+    };
+
     return {
       /**
        * Registers a leaflet map instance with the given name.
@@ -51,26 +60,14 @@ angular.module('angularLeafletService.services')
       },
 
       /**
-       * Setup the service
-       * @param options options to set up the leaflet service with.
-       *                provider: either 'leaflet' or 'mapbox'
-       *                accessToken: if you chose 'mapbox', set your access token here
+       *
+       * @returns {string} the provider that was chosen to run
        */
-      setup: function(options) {
-        if (options.provider) {
-          provider = options.provider;
-        }
-        if (provider === 'mapbox') {
-          L.mapbox.accessToken = options.accessToken;
-        }
-      },
-
-        /**
-         *
-         * @returns {string} the provider that was chosen to run
-         */
       getProvider: function() {
         return provider;
       }
     };
+  })
+  .provider("$leafletProvider", function() {
+
   });
