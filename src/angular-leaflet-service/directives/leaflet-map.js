@@ -43,9 +43,10 @@ angular.module('angularLeafletService.directives')
             scope.map = L.map(id);
             break;
         }
+        scope.map.on('load', function(e){
+          $leaflet.registerMap(scope.map, scope.name);
+        });
         scope.map.setView([53.544058899999996, 9.996588299999999], 18);
-
-        $leaflet.registerMap(scope.map, scope.name);
       }
     };
   });
