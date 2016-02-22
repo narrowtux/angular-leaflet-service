@@ -43,5 +43,15 @@ If you use `leaflet`, you should set the tileset for your map there as well.
 If you use mapbox, it will use `mapbox.streets` as a default style, you can modify that in the directive:
 
 ```html
-<leaflet-map id="my-demo-map" mapbox-style="mapbox.pirates"></leaflet-map>
+<leaflet-map id="my-demo-map" mapbox-style="'mapbox.pirates'"></leaflet-map>
 ```
+
+Alternatively, pass a variable of your scope.
+
+### CSS Helper classes
+
+angular-leaflet-service contains a few CSS helper classes which help you develop your app faster:
+
+**`.leaflet-fullscreen`** Use this class on your `leaflet-map` directive and the map will fill the entire browser window. Use `z-index: 1` on other elements to make them visible in front of the map.
+
+There's also an extension to `.leaflet-container` to set some default `display` behaviour, along with a default size.
